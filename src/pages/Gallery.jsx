@@ -47,20 +47,20 @@ export default function Gallery() {
         image="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1800&q=90"
       />
 
-      <section className="py-20 px-6 bg-cream min-h-screen">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-cream min-h-screen">
         <div className="max-w-7xl mx-auto">
           {/* Filter tabs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-2 justify-center mb-14"
+            className="flex flex-wrap gap-2 justify-center mb-10 sm:mb-14"
           >
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-body transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 text-xs tracking-[0.15em] uppercase font-body transition-all duration-300 ${
                   active === cat
                     ? 'bg-espresso text-ivory'
                     : 'bg-transparent text-espresso border border-espresso/30 hover:border-gold hover:text-gold'
@@ -111,14 +111,15 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-charcoal/95 flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-charcoal/95 flex items-center justify-center p-4 sm:p-6"
             onClick={() => setLightbox(null)}
           >
             <button
-              className="absolute top-6 right-6 text-ivory hover:text-gold transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-ivory hover:text-gold transition-colors"
               onClick={() => setLightbox(null)}
             >
-              <X size={32} strokeWidth={1.5} />
+              <X size={28} strokeWidth={1.5} className="sm:hidden" />
+              <X size={32} strokeWidth={1.5} className="hidden sm:block" />
             </button>
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
@@ -131,10 +132,10 @@ export default function Gallery() {
               <img
                 src={lightbox.src}
                 alt={lightbox.title}
-                className="w-full max-h-[80vh] object-contain"
+                className="w-full max-h-[75vh] sm:max-h-[80vh] object-contain"
               />
-              <div className="mt-4 text-center">
-                <div className="font-display text-ivory text-xl tracking-wide">{lightbox.title}</div>
+              <div className="mt-3 sm:mt-4 text-center">
+                <div className="font-display text-ivory text-lg sm:text-xl tracking-wide">{lightbox.title}</div>
                 <div className="section-label text-gold/70 mt-1">{lightbox.cat}</div>
               </div>
             </motion.div>

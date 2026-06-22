@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function CTASection() {
   return (
-    <section className="relative py-22 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -12,20 +12,19 @@ export default function CTASection() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal/80" />
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-charcoal/60 via-charcoal/40 to-charcoal/60" /> */}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <div className="relative z-10 text-center px-5 sm:px-6 max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-4 mb-8"
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8"
         >
-          <div className="h-px w-12 bg-gold/60" />
+          <div className="h-px w-8 sm:w-12 bg-gold/60" />
           <span className="section-label text-gold/80">Bespoke Creations</span>
-          <div className="h-px w-12 bg-gold/60" />
+          <div className="h-px w-8 sm:w-12 bg-gold/60" />
         </motion.div>
 
         <motion.h2
@@ -33,7 +32,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-display text-ivory text-4xl sm:text-5xl lg:text-6xl mb-7 leading-tight"
+          className="font-display text-ivory text-3xl sm:text-5xl lg:text-6xl mb-5 sm:mb-7 leading-tight"
         >
           Create Your Dream
           <br />
@@ -45,9 +44,9 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-ivory/55 text-sm sm:text-base tracking-wide mb-10 max-w-lg mx-auto leading-relaxed"
+          className="text-ivory/55 text-sm sm:text-base tracking-wide mb-8 sm:mb-10 max-w-sm sm:max-w-lg mx-auto leading-relaxed"
         >
-          Work directly with our master artisans to bring your vision to life. 
+          Work directly with our master artisans to bring your vision to life.
           Every bespoke piece begins with a single conversation.
         </motion.p>
 
@@ -57,7 +56,7 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
-          <Link to="/contact" className="btn-gold text-sm px-10 py-4">
+          <Link to="/contact" className="btn-gold text-xs sm:text-sm px-8 sm:px-10 py-3 sm:py-4">
             Begin Your Journey
           </Link>
         </motion.div>

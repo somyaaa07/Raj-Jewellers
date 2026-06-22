@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
@@ -38,9 +37,9 @@ const testimonials = [
 
 function Stars({ count }) {
   return (
-    <div className="flex gap-1 mb-5">
+    <div className="flex gap-1 mb-4 sm:mb-5">
       {Array.from({ length: count }).map((_, i) => (
-        <span key={i} className="text-gold text-base">★</span>
+        <span key={i} className="text-gold text-sm sm:text-base">★</span>
       ))}
     </div>
   )
@@ -48,24 +47,22 @@ function Stars({ count }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-28 bg-espresso overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 sm:py-20 lg:py-28 bg-espresso overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="section-label text-gold/80"
           >
             Client Stories
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-ivory text-4xl sm:text-5xl mt-4 mb-5"
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display text-ivory text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5"
           >
             Voices of Trust
           </motion.h2>
@@ -73,45 +70,40 @@ export default function Testimonials() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={32}
+            spaceBetween={20}
             slidesPerView={1}
             breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 2 },
+              640: { slidesPerView: 1, spaceBetween: 24 },
+              768: { slidesPerView: 2, spaceBetween: 28 },
+              1024: { slidesPerView: 2, spaceBetween: 32 },
             }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             loop
-            style={{ paddingBottom: '50px' }}
+            style={{ paddingBottom: '48px' }}
           >
             {testimonials.map((t, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white/5 border border-white/10 p-8 h-full relative">
-                  {/* Gold quotation mark */}
-                  {/* <div className="font-display text-gold/20 text-8xl leading-none absolute -top-3 -left-1 select-none">
-                    "
-                  </div>*/}
+                {/* FIX: p-5 mobile, p-8 sm+ */}
+                <div className="bg-white/5 border border-white/10 p-5 sm:p-8 h-full relative">
                   <Stars count={t.rating} />
-                  <p className="text-ivory/60 text-sm leading-relaxed mb-8 relative z-10">
+                  <p className="text-ivory/60 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 relative z-10">
                     {t.text}
                   </p>
-                  <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                  <div className="flex items-center gap-3 sm:gap-4 border-t border-white/10 pt-5 sm:pt-6">
                     <img
                       src={t.avatar}
                       alt={t.name}
-                      className="w-11 h-11 rounded-full object-cover"
+                      className="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover flex-shrink-0"
                     />
                     <div>
-                      <div className="text-ivory text-sm font-display tracking-wide">{t.name}</div>
-                      <div className="text-ivory/40 text-xs tracking-wide mt-0.5">{t.role}</div>
+                      <div className="text-ivory text-xs sm:text-sm font-display tracking-wide">{t.name}</div>
+                      <div className="text-ivory/40 text-[0.65rem] sm:text-xs tracking-wide mt-0.5">{t.role}</div>
                     </div>
                   </div>
                 </div>
@@ -119,6 +111,7 @@ export default function Testimonials() {
             ))}
           </Swiper>
         </motion.div>
+
       </div>
     </section>
   )

@@ -3,9 +3,6 @@ import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import CTASection from './CTASection'
 
-/* ─────────────────────────────────────────
-   PART A — Data
-───────────────────────────────────────── */
 const processSteps = [
   {
     number: '01',
@@ -14,10 +11,7 @@ const processSteps = [
       'Every piece begins as a vision. Our designers work closely with you to translate emotion and intention into refined hand-drawn sketches, refining each line until the design feels inevitable.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 22L10 16L16 20L24 8" />
-        <circle cx="24" cy="6" r="2" />
-        <path d="M2 26h24" />
-        <path d="M8 18l-4 4" />
+        <path d="M4 22L10 16L16 20L24 8" /><circle cx="24" cy="6" r="2" /><path d="M2 26h24" /><path d="M8 18l-4 4" />
       </svg>
     ),
   },
@@ -28,12 +22,7 @@ const processSteps = [
       'We source only ethically-certified gemstones, examined under expert eyes for brilliance, clarity, and character. Each stone is chosen to become the heart of something extraordinary.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="14,3 25,10 25,20 14,26 3,20 3,10" />
-        <line x1="14" y1="3" x2="14" y2="26" />
-        <line x1="3" y1="10" x2="25" y2="10" />
-        <line x1="3" y1="20" x2="25" y2="20" />
-        <line x1="3" y1="10" x2="14" y2="3" />
-        <line x1="25" y1="10" x2="14" y2="3" />
+        <polygon points="14,3 25,10 25,20 14,26 3,20 3,10" /><line x1="14" y1="3" x2="14" y2="26" /><line x1="3" y1="10" x2="25" y2="10" /><line x1="3" y1="20" x2="25" y2="20" /><line x1="3" y1="10" x2="14" y2="3" /><line x1="25" y1="10" x2="14" y2="3" />
       </svg>
     ),
   },
@@ -44,10 +33,7 @@ const processSteps = [
       'Master goldsmiths bring the design to life entirely by hand — setting each stone, shaping every curve, and applying finishing techniques passed down through generations of artisans.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 22V12l-4 2V8l8-4 8 4v6l-4-2v10" />
-        <path d="M10 22h8" />
-        <circle cx="14" cy="16" r="2" />
-        <path d="M7 8l7 3 7-3" />
+        <path d="M10 22V12l-4 2V8l8-4 8 4v6l-4-2v10" /><path d="M10 22h8" /><circle cx="14" cy="16" r="2" /><path d="M7 8l7 3 7-3" />
       </svg>
     ),
   },
@@ -58,43 +44,19 @@ const processSteps = [
       'Before it reaches your hands, each piece passes through rigorous quality control — measured, magnified, and tested to ensure it carries the Raj Jewellers mark of perfection and longevity.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13" cy="13" r="8" />
-        <line x1="19" y1="19" x2="25" y2="25" />
-        <path d="M10 13l2 2 4-4" />
+        <circle cx="13" cy="13" r="8" /><line x1="19" y1="19" x2="25" y2="25" /><path d="M10 13l2 2 4-4" />
       </svg>
     ),
   },
 ]
 
-/* ─────────────────────────────────────────
-   PART B — Data
-───────────────────────────────────────── */
 const contactDetails = [
-  {
-    icon: MapPin,
-    label: 'Visit Us',
-    lines: ['12, Jewellers Row, Connaught Place', 'New Delhi – 110001, India'],
-  },
-  {
-    icon: Phone,
-    label: 'Call Us',
-    lines: ['+91 98765 43210', '+91 11 2345 6789'],
-  },
-  {
-    icon: Mail,
-    label: 'Email Us',
-    lines: ['hello@rajjewellers.co.in', 'bespoke@rajjewellers.co.in'],
-  },
-  {
-    icon: Clock,
-    label: 'Hours',
-    lines: ['Mon – Sat: 10am – 7pm', 'Sunday: By Appointment'],
-  },
+  { icon: MapPin, label: 'Visit Us', lines: ['12, Jewellers Row, Connaught Place', 'New Delhi – 110001, India'] },
+  { icon: Phone, label: 'Call Us', lines: ['+91 98765 43210', '+91 11 2345 6789'] },
+  { icon: Mail, label: 'Email Us', lines: ['hello@rajjewellers.co.in', 'bespoke@rajjewellers.co.in'] },
+  { icon: Clock, label: 'Hours', lines: ['Mon – Sat: 10am – 7pm', 'Sunday: By Appointment'] },
 ]
 
-/* ─────────────────────────────────────────
-   SHARED animation helper
-───────────────────────────────────────── */
 function fadeUp(delay = 0) {
   return {
     initial: { opacity: 0, y: 40 },
@@ -104,41 +66,36 @@ function fadeUp(delay = 0) {
   }
 }
 
-/* ─────────────────────────────────────────
-   PART A — Process Step Card
-───────────────────────────────────────── */
 function ProcessStep({ step, index }) {
   const isEven = index % 2 === 0
-
   return (
     <motion.div
       initial={{ opacity: 0, x: isEven ? -40 : 40 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.7, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="group relative flex gap-6 sm:gap-8"
+      className="group relative flex gap-4 sm:gap-6"
     >
-      {/* Left: number + connector line */}
+      {/* Left: icon + connector */}
       <div className="flex flex-col items-center flex-shrink-0">
-        <div className="w-14 h-14 border border-gold/40 flex items-center justify-center text-gold relative group-hover:border-gold transition-all duration-400 bg-ivory group-hover:bg-gold/5">
-          {step.icon}
-          {/* Pulse ring on hover */}
+        {/* FIX: w-10 h-10 mobile, w-14 h-14 sm+ */}
+        <div className="w-10 h-10 sm:w-14 sm:h-14 border border-gold/40 flex items-center justify-center text-gold relative group-hover:border-gold transition-all duration-400 bg-ivory group-hover:bg-gold/5">
+          <span className="scale-75 sm:scale-100">{step.icon}</span>
           <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 scale-110 transition-all duration-500" />
         </div>
-        {/* Connector */}
         {index < processSteps.length - 1 && (
-          <div className="w-px flex-1 bg-gradient-to-b from-gold/30 to-transparent mt-3 min-h-[3rem]" />
+          <div className="w-px flex-1 bg-gradient-to-b from-gold/30 to-transparent mt-3 min-h-[2rem] sm:min-h-[3rem]" />
         )}
       </div>
 
       {/* Right: content */}
-      <div className="pb-10">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="font-display text-gold/40 text-sm tracking-widest">{step.number}</span>
-          <div className="h-px w-5 bg-gold/30" />
-          <h4 className="font-display text-espresso text-xl tracking-wide">{step.title}</h4>
+      <div className="pb-8 sm:pb-10">
+        <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
+          <span className="font-display text-gold/40 text-xs sm:text-sm tracking-widest">{step.number}</span>
+          <div className="h-px w-4 sm:w-5 bg-gold/30" />
+          <h4 className="font-display text-espresso text-base sm:text-xl tracking-wide">{step.title}</h4>
         </div>
-        <p className="text-espresso/60 text-sm leading-relaxed max-w-sm">
+        <p className="text-espresso/60 text-xs sm:text-sm leading-relaxed max-w-xs sm:max-w-sm">
           {step.description}
         </p>
       </div>
@@ -146,17 +103,8 @@ function ProcessStep({ step, index }) {
   )
 }
 
-/* ─────────────────────────────────────────
-   PART C — Contact Form
-───────────────────────────────────────── */
 function LuxuryContactForm() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [errors, setErrors] = useState({})
   const [sent, setSent] = useState(false)
 
@@ -177,10 +125,7 @@ function LuxuryContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const errs = validate()
-    if (Object.keys(errs).length) {
-      setErrors(errs)
-      return
-    }
+    if (Object.keys(errs).length) { setErrors(errs); return }
     setSent(true)
   }
 
@@ -190,100 +135,64 @@ function LuxuryContactForm() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col items-center justify-center py-16 text-center"
+        className="flex flex-col items-center justify-center py-12 sm:py-16 text-center"
       >
-        <div className="w-16 h-16 border border-gold flex items-center justify-center mb-6">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 border border-gold flex items-center justify-center mb-5 sm:mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B08D57" strokeWidth="1.5" strokeLinecap="round">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="font-display text-espresso text-2xl mb-3 tracking-wide">Message Received</h3>
+        <h3 className="font-display text-espresso text-xl sm:text-2xl mb-3 tracking-wide">Message Received</h3>
         <div className="h-px w-12 bg-gold mx-auto mb-5" />
-        <p className="text-espresso/55 text-sm tracking-wide">
-          We will reach out within 24 hours.
-        </p>
+        <p className="text-espresso/55 text-sm tracking-wide">We will reach out within 24 hours.</p>
       </motion.div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-7">
-      {/* Row 1 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+    <form onSubmit={handleSubmit} noValidate className="space-y-5 sm:space-y-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
         <div>
-          <label className="section-label text-[0.65rem] block mb-3">Full Name *</label>
-          <input
-            name="name"
-            type="text"
-            value={form.name}
-            onChange={handleChange}
+          <label className="section-label text-[0.65rem] block mb-2 sm:mb-3">Full Name *</label>
+          <input name="name" type="text" value={form.name} onChange={handleChange}
             placeholder="Your name"
-            className={`input-luxury ${errors.name ? 'border-b-red-400' : ''}`}
-          />
-          {errors.name && (
-            <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.name}</p>
-          )}
+            className={`input-luxury w-full ${errors.name ? 'border-b-red-400' : ''}`} />
+          {errors.name && <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.name}</p>}
         </div>
         <div>
-          <label className="section-label text-[0.65rem] block mb-3">Email Address *</label>
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
+          <label className="section-label text-[0.65rem] block mb-2 sm:mb-3">Email Address *</label>
+          <input name="email" type="email" value={form.email} onChange={handleChange}
             placeholder="your@email.com"
-            className={`input-luxury ${errors.email ? 'border-b-red-400' : ''}`}
-          />
-          {errors.email && (
-            <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.email}</p>
-          )}
+            className={`input-luxury w-full ${errors.email ? 'border-b-red-400' : ''}`} />
+          {errors.email && <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.email}</p>}
         </div>
       </div>
 
-      {/* Row 2 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
         <div>
-          <label className="section-label text-[0.65rem] block mb-3">Phone Number</label>
-          <input
-            name="phone"
-            type="tel"
-            value={form.phone}
-            onChange={handleChange}
-            placeholder="+91 00000 00000"
-            className="input-luxury"
-          />
+          <label className="section-label text-[0.65rem] block mb-2 sm:mb-3">Phone Number</label>
+          <input name="phone" type="tel" value={form.phone} onChange={handleChange}
+            placeholder="+91 00000 00000" className="input-luxury w-full" />
         </div>
         <div>
-          <label className="section-label text-[0.65rem] block mb-3">Subject</label>
-          <input
-            name="subject"
-            type="text"
-            value={form.subject}
-            onChange={handleChange}
-            placeholder="How can we help you?"
-            className="input-luxury"
-          />
+          <label className="section-label text-[0.65rem] block mb-2 sm:mb-3">Subject</label>
+          <input name="subject" type="text" value={form.subject} onChange={handleChange}
+            placeholder="How can we help you?" className="input-luxury w-full" />
         </div>
       </div>
 
-      {/* Message */}
       <div>
-        <label className="section-label text-[0.65rem] block mb-3">Your Message *</label>
-        <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
+        <label className="section-label text-[0.65rem] block mb-2 sm:mb-3">Your Message *</label>
+        <textarea name="message" value={form.message} onChange={handleChange}
           placeholder="Tell us about the piece you dream of, or ask us anything..."
           rows={5}
-          className={`input-luxury resize-none ${errors.message ? 'border-b-red-400' : ''}`}
-        />
-        {errors.message && (
-          <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.message}</p>
-        )}
+          className={`input-luxury resize-none w-full ${errors.message ? 'border-b-red-400' : ''}`} />
+        {errors.message && <p className="text-red-400 text-[0.65rem] mt-1 tracking-wide">{errors.message}</p>}
       </div>
 
-      <div className="flex items-center gap-6 pt-2">
-        <button type="submit" className="btn-gold">
+      {/* FIX: stack on mobile */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+        <button type="submit" className="btn-gold w-full sm:w-auto">
           Send Message
         </button>
         <span className="text-espresso/30 text-xs tracking-widest">* Required fields</span>
@@ -292,32 +201,25 @@ function LuxuryContactForm() {
   )
 }
 
-/* ─────────────────────────────────────────
-   MAIN EXPORT
-───────────────────────────────────────── */
 export default function CraftsmanshipAndContactSection() {
   return (
     <>
-      {/* ════════════════════════════════════
-          PART A — How We Make Our Jewellery
-      ════════════════════════════════════ */}
-      <section className="py-28 px-12 bg-cream overflow-hidden">
+      {/* ── PART A — Process ── */}
+      {/* FIX: py-16 mobile, px-5 mobile */}
+      <section className="py-16 sm:py-20 lg:py-28 px-5 sm:px-8 lg:px-12 bg-cream overflow-hidden">
         <div className="max-w-7xl mx-auto">
 
-          {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="section-label"
             >
               Our Atelier
             </motion.span>
             <motion.h2
               {...fadeUp(0.1)}
-              className="font-display text-espresso text-4xl sm:text-5xl mt-4 mb-5 leading-tight"
+              className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5 leading-tight"
             >
               How We Make
               <br />
@@ -326,90 +228,72 @@ export default function CraftsmanshipAndContactSection() {
             <div className="gold-divider mb-6" />
             <motion.p
               {...fadeUp(0.2)}
-              className="text-espresso/60 text-sm max-w-xl mx-auto leading-relaxed tracking-wide"
+              className="text-espresso/60 text-sm max-w-xl mx-auto leading-relaxed tracking-wide px-4"
             >
               Every Raj Jewellers piece follows a sacred four-step journey — from the first pencil mark
               to the final polish — guided by hands that have mastered the art of forever.
             </motion.p>
           </div>
 
-          {/* Process grid: steps left, image right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
-            {/* Steps column */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-start">
+            {/* Steps */}
             <div>
               {processSteps.map((step, i) => (
                 <ProcessStep key={step.number} step={step} index={i} />
               ))}
             </div>
 
-            {/* Image column — sticky on desktop */}
-            <motion.div
-              {...fadeUp(0.3)}
-              className="relative lg:sticky lg:top-28"
-            >
+            {/* Image — FIX: not sticky on mobile, stat card pulled in on mobile */}
+            <motion.div {...fadeUp(0.3)} className="relative lg:sticky lg:top-28">
               <div className="relative overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=90"
                   alt="Jewellery artisan at work"
-                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                  className="w-full h-64 sm:h-80 lg:h-[600px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent" />
 
-                {/* Floating stat card */}
+                {/* FIX: stat card — inset on mobile so it doesn't overflow */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.55, duration: 0.7 }}
-                  className="absolute -bottom-6 -left-6 bg-espresso p-8 w-52"
+                  className="absolute bottom-4 left-4 lg:-bottom-6 lg:-left-6 bg-espresso p-5 sm:p-8 w-40 sm:w-52"
                 >
-                  <div className="font-display text-4xl text-gold mb-1">250+</div>
-                  <div className="text-ivory/55 text-xs tracking-widest uppercase">Exclusive</div>
-                  <div className="text-ivory text-xs tracking-widest uppercase">Designs Created</div>
+                  <div className="font-display text-3xl sm:text-4xl text-gold mb-1">250+</div>
+                  <div className="text-ivory/55 text-[0.6rem] sm:text-xs tracking-widest uppercase">Exclusive</div>
+                  <div className="text-ivory text-[0.6rem] sm:text-xs tracking-widest uppercase">Designs Created</div>
                 </motion.div>
               </div>
 
-              {/* Gold frame accent */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 border border-gold/35 pointer-events-none" />
+              {/* FIX: gold frame hidden on mobile (would clip) */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 border border-gold/35 pointer-events-none hidden sm:block" />
             </motion.div>
-
           </div>
         </div>
       </section>
-                  <CTASection />
 
+      <CTASection />
 
-      {/* ════════════════════════════════════
-          PART B — Map + Info
-      ════════════════════════════════════ */}
-
-
-      {/* ════════════════════════════════════
-          PART C — Luxury Contact Form
-      ════════════════════════════════════ */}
-      <section className="py-28 px-12 bg-ivory overflow-hidden">
+      {/* ── PART C — Contact Form ── */}
+      <section className="py-16 sm:py-20 lg:py-28 px-5 sm:px-8 lg:px-12 bg-ivory overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-14 lg:gap-20">
 
-            {/* Left: context */}
-            <motion.div
-              {...fadeUp(0)}
-              className="lg:col-span-2 flex flex-col justify-center"
-            >
+            {/* Left context */}
+            <motion.div {...fadeUp(0)} className="lg:col-span-2 flex flex-col justify-center">
               <span className="section-label mb-4">Write to Us</span>
-              <h2 className="font-display text-espresso text-4xl sm:text-5xl mb-4 leading-tight">
+              <h2 className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mb-4 leading-tight">
                 Begin a
                 <br />
                 <span className="text-gold">Conversation</span>
               </h2>
-              <div className="gold-divider-left mb-7" />
-              <p className="text-espresso/60 text-sm leading-relaxed mb-10 max-w-xs">
-                Whether you have a question, a dream, or simply wish to say hello — 
+              <div className="gold-divider-left mb-6 sm:mb-7" />
+              <p className="text-espresso/60 text-sm leading-relaxed mb-8 sm:mb-10 max-w-xs">
+                Whether you have a question, a dream, or simply wish to say hello —
                 our team responds to every message personally within 24 hours.
               </p>
-
-              {/* Decorative image */}
               <div className="relative hidden lg:block">
                 <img
                   src="https://images.unsplash.com/photo-1607703703520-bb638e84caf2?w=600&q=85"
@@ -420,75 +304,69 @@ export default function CraftsmanshipAndContactSection() {
               </div>
             </motion.div>
 
-            {/* Right: form */}
+            {/* Right form — FIX: p-6 mobile, p-10 sm, p-14 lg */}
             <motion.div
               {...fadeUp(0.18)}
-              className="lg:col-span-3 bg-cream p-10 sm:p-14"
+              className="lg:col-span-3 bg-cream p-6 sm:p-10 lg:p-14"
             >
               <LuxuryContactForm />
             </motion.div>
-
           </div>
         </div>
       </section>
-            <section className="bg-espresso overflow-hidden">
-        <div className="max-w-7xl mx-auto ">
+
+      {/* ── Map + Info ── */}
+      <section className="bg-espresso overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* FIX: stacked on mobile, side by side on lg */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
 
-            {/* Map embed — takes 2/3 */}
-            <div className="lg:col-span-2 relative h-80 sm:h-96 lg:h-full min-h-[400px]">
+            {/* Map */}
+            <div className="lg:col-span-2 relative h-72 sm:h-96 lg:h-full lg:min-h-[480px]">
               <iframe
                 title="Raj Jewellers Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9032540577403!2d77.21987917550376!3d28.632734675670604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xd24d5659e0c71d7b!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
+                width="100%" height="100%"
                 style={{ border: 0, filter: 'grayscale(40%) contrast(1.1) brightness(0.85)' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 w-full h-full"
               />
-              {/* Overlay tint to match brand palette */}
               <div className="absolute inset-0 pointer-events-none bg-espresso/10" />
-
-              {/* Gold pin label */}
-              <div className="absolute top-5 left-5 bg-espresso/90 backdrop-blur-sm px-4 py-3 flex items-center gap-3">
-                <MapPin size={16} className="text-gold flex-shrink-0" strokeWidth={1.5} />
+              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 bg-espresso/90 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2 sm:gap-3">
+                <MapPin size={14} className="text-gold flex-shrink-0" strokeWidth={1.5} />
                 <div>
                   <div className="text-ivory text-xs font-display tracking-wider">Raj Jewellers & Sons</div>
-                  <div className="text-ivory/50 text-[0.65rem] tracking-wide mt-0.5">Connaught Place, New Delhi</div>
+                  <div className="text-ivory/50 text-[0.6rem] tracking-wide mt-0.5">Connaught Place, New Delhi</div>
                 </div>
               </div>
             </div>
 
-            {/* Info card — 1/3 */}
+            {/* Info card — FIX: px-5 mobile, border-top on mobile instead of left */}
             <motion.div
               {...fadeUp(0.15)}
-              className="bg-espresso px-10 py-14 lg:py-16 flex flex-col justify-center border-l border-white/8"
+              className="bg-espresso px-5 sm:px-8 lg:px-10 py-10 lg:py-16 flex flex-col justify-center border-t lg:border-t-0 border-l-0 lg:border-l border-white/8"
             >
               <span className="section-label text-gold/80 mb-4">Find Us</span>
-              <h3 className="font-display text-ivory text-3xl mb-2 leading-tight">
-                Our Studio
-              </h3>
-              <div className="h-px w-12 bg-gold/40 mb-8" />
+              <h3 className="font-display text-ivory text-2xl sm:text-3xl mb-2 leading-tight">Our Studio</h3>
+              <div className="h-px w-12 bg-gold/40 mb-6 sm:mb-8" />
 
-              <div className="space-y-7">
+              {/* FIX: 2-col grid on sm so 4 items fit nicely on tablet */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 sm:gap-6 lg:gap-7">
                 {contactDetails.map(({ icon: Icon, label, lines }) => (
-                  <div key={label} className="flex gap-4">
-                    <div className="w-9 h-9 border border-gold/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={15} className="text-gold" strokeWidth={1.5} />
+                  <div key={label} className="flex gap-3 sm:gap-4">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 border border-gold/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon size={14} className="text-gold" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <div className="section-label text-[0.6rem] text-gold/60 mb-1.5">{label}</div>
+                      <div className="section-label text-[0.6rem] text-gold/60 mb-1">{label}</div>
                       {lines.map((line, i) => (
-                        <div key={i} className="text-ivory/60 text-sm leading-relaxed">{line}</div>
+                        <div key={i} className="text-ivory/60 text-xs sm:text-sm leading-relaxed">{line}</div>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>

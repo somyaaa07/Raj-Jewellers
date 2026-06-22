@@ -39,18 +39,19 @@ export default function About() {
         image="https://i.pinimg.com/736x/22/14/1e/22141ed6d68c74bd8fe84734d26fc9bf.jpg"
       />
 
-      {/* Story Section */}
-      <section className="py-28 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* ── Story Section ── */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-cream">
+        {/* FIX: double px removed — outer px-5, inner px-0 */}
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <motion.div {...fadeUp()}>
               <span className="section-label">Who We Are</span>
-              <h2 className="font-display text-espresso text-4xl sm:text-5xl mt-4 mb-6 leading-tight">
+              <h2 className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5 sm:mb-6 leading-tight">
                 Artisans of
                 <br /><span className="text-gold">Extraordinary Beauty</span>
               </h2>
-              <div className="gold-divider-left mb-7" />
-              <p className="text-espresso/65 text-sm leading-relaxed mb-5">
+              <div className="gold-divider-left mb-6 sm:mb-7" />
+              <p className="text-espresso/65 text-sm leading-relaxed mb-4 sm:mb-5">
                 Raj Jewellery was founded on a single principle: that true luxury lies not in excess,
                 but in restraint, intention, and mastery. Each piece we create is the result of hundreds of
                 hours of design, selection, and hand-finishing.
@@ -65,64 +66,57 @@ export default function About() {
               <img
                 src="https://i.pinimg.com/736x/22/14/1e/22141ed6d68c74bd8fe84734d26fc9bf.jpg"
                 alt="Jewellery artisan"
-                className="w-full h-[480px] object-cover"
+                className="w-full h-64 sm:h-80 lg:h-[480px] object-cover"
               />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-ivory">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-1">
+      {/* ── Mission & Vision ── */}
+      <section className="py-16 sm:py-20 bg-ivory">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-1">
           {[
             {
-              label: 'Our Mission',
-              title: 'Jewellery That Endures',
+              label: 'Our Mission', title: 'Jewellery That Endures',
               text: 'To craft pieces of extraordinary beauty that outlast generations — heirlooms imbued with meaning, memory, and mastery. We believe every person deserves to own something genuinely timeless.',
-              bg: 'bg-espresso',
-              textColor: 'text-ivory/60',
-              titleColor: 'text-ivory',
-              labelColor: 'text-gold/80',
+              bg: 'bg-espresso', textColor: 'text-ivory/60', titleColor: 'text-ivory', labelColor: 'text-gold/80',
             },
             {
-              label: 'Our Vision',
-              title: 'Redefining Luxury',
+              label: 'Our Vision', title: 'Redefining Luxury',
               text: 'To lead the world in ethical luxury jewellery — where beauty and responsibility coexist. We envision a future where every gemstone can be traced to its source, and every artisan is celebrated.',
-              bg: 'bg-gold',
-              textColor: 'text-espresso/70',
-              titleColor: 'text-espresso',
-              labelColor: 'text-espresso/60',
+              bg: 'bg-gold', textColor: 'text-espresso/70', titleColor: 'text-espresso', labelColor: 'text-espresso/60',
             },
           ].map(({ label, title, text, bg, textColor, titleColor, labelColor }) => (
             <motion.div
               key={label}
               {...fadeUp(0.1)}
-              className={`${bg} p-14`}
+              // FIX: p-8 mobile, p-10 sm, p-14 lg
+              className={`${bg} p-8 sm:p-10 lg:p-14`}
             >
               <span className={`section-label ${labelColor}`}>{label}</span>
-              <h3 className={`font-display text-3xl mt-4 mb-5 ${titleColor}`}>{title}</h3>
-              <div className={`h-px w-12 mb-6 ${bg === 'bg-espresso' ? 'bg-gold/50' : 'bg-espresso/30'}`} />
+              <h3 className={`font-display text-2xl sm:text-3xl mt-4 mb-4 sm:mb-5 ${titleColor}`}>{title}</h3>
+              <div className={`h-px w-12 mb-5 sm:mb-6 ${bg === 'bg-espresso' ? 'bg-gold/50' : 'bg-espresso/30'}`} />
               <p className={`text-sm leading-relaxed ${textColor}`}>{text}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-28 px-6 bg-cream overflow-hidden">
+      {/* ── Timeline ── */}
+      <section className="py-16 sm:py-20 lg:py-28 px-5 sm:px-6 bg-cream overflow-hidden">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <span className="section-label">Our Journey</span>
-            <h2 className="font-display text-espresso text-4xl sm:text-5xl mt-4 mb-5">
+            <h2 className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5">
               A Legacy in the Making
             </h2>
             <div className="gold-divider" />
           </div>
+
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/20 -translate-x-1/2 hidden md:block" />
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {timelineEvents.map((event, i) => (
                 <motion.div
                   key={event.year}
@@ -130,14 +124,18 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: i * 0.1 }}
-                  className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                  // FIX: always flex-row on mobile (no alternating), alternates on md+
+                  className={`flex items-start md:items-center gap-5 sm:gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
-                  <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="font-display text-gold text-4xl mb-2">{event.year}</div>
-                    <h4 className="font-display text-espresso text-xl mb-2">{event.title}</h4>
-                    <p className="text-espresso/60 text-sm leading-relaxed">{event.desc}</p>
+                  {/* Mobile: year left, content right */}
+                  <div className="md:hidden font-display text-gold text-2xl sm:text-3xl flex-shrink-0 w-16">
+                    {event.year}
                   </div>
-                  {/* Center dot */}
+                  <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    <div className="hidden md:block font-display text-gold text-4xl mb-2">{event.year}</div>
+                    <h4 className="font-display text-espresso text-base sm:text-xl mb-1 sm:mb-2">{event.title}</h4>
+                    <p className="text-espresso/60 text-xs sm:text-sm leading-relaxed">{event.desc}</p>
+                  </div>
                   <div className="hidden md:flex w-4 h-4 rounded-full bg-gold border-4 border-cream flex-shrink-0 relative z-10" />
                   <div className="hidden md:block flex-1" />
                 </motion.div>
@@ -146,19 +144,20 @@ export default function About() {
           </div>
         </div>
       </section>
+
       <CTASection />
 
-      {/* Craftsmanship collage */}
-      <section className="py-28 bg-espresso px-6">
+      {/* ── Craftsmanship collage ── */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-espresso px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <span className="section-label text-gold/80">Behind Each Piece</span>
-            <h2 className="font-display text-ivory text-4xl sm:text-5xl mt-4 mb-5">
+            <h2 className="font-display text-ivory text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5">
               The Art of Craftsmanship
             </h2>
             <div className="gold-divider" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
             {craftsmanshipImages.map((src, i) => (
               <motion.div
                 key={i}
@@ -179,64 +178,52 @@ export default function About() {
         </div>
       </section>
 
-
-
-      <section className='py-12 px-12 bg-cream'>
-        <div className='max-w-7xl mx-auto'>
-
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
+      {/* ── Founder Section ── */}
+      <section className="py-12 sm:py-16 lg:py-20 px-5 sm:px-8 lg:px-12 bg-cream">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
 
             <motion.div {...fadeUp()}>
-              {/* <span className='text-gold text-[12px] mb-8 px-2'>
-              Our leader
-            </span> */}
-              <h1 className='text-gold text-[12px] mb-3 uppercase tracking-wide'>Our Founder</h1>
-              <div>
-                <h2 className='text-espresso text-[55px] mb-5'>
-                  Meet the Visionary
-                  Behind Raj Jewellery
-                </h2>
-                <div className='space-y-6'>
-                  <p className=' text-md text-espresso/60 '>
-                    Raj Jewellery was founded on a single principle: that true luxury lies not in excess, but in restraint, intention, and mastery. Each piece we create is the result of hundreds of hours of design, selection, and hand-finishing.
-                  </p>
-                  <p className=' text-md text-espresso/60'>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam iste corporis voluptatum, molestiae ea tenetur dicta, consequatur fuga ducimus officiis dolores odio sapiente cupiditate fugit eveniet libero est ipsam placeat.
-                  </p>
-                  <p className='text-md text-espresso/60'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cumque reiciendis adipisci vel dolore odio voluptatum asperiores molestiae deleniti unde velit est soluta mollitia accusamus saepe, numquam sapiente consequuntur quia!
-                  </p>
-                </div>
-
-                <div className='mt-10 rounded-2xl bg-cream border border-espresso/60 p-8 shadow-lg relative'>
-                  <span className='absolute top-4 leading-none left-6 text-5xl text-gold'>
-                    ❝
-                  </span>
-                  <p className="pt-8 text-lg italic leading-8 text-espresso">
-                    Every piece of jewellery carries a story, an emotion, and a legacy that
-                    lasts for generations.
-                  </p>
-
-                  <p className="mt-6 text-right text-sm uppercase tracking-[0.2em] text-gold">
-                    — Raj Sharma
-                  </p>
-
-                </div>
+              <h1 className="text-gold text-[12px] mb-3 uppercase tracking-wide">Our Founder</h1>
+              {/* FIX: text-[55px] → responsive clamp */}
+              <h2 className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-5 leading-tight">
+                Meet the Visionary
+                <br />Behind Raj Jewellery
+              </h2>
+              <div className="space-y-4 sm:space-y-6">
+                <p className="text-sm text-espresso/60 leading-relaxed">
+                  Raj Jewellery was founded on a single principle: that true luxury lies not in excess, but in restraint, intention, and mastery. Each piece we create is the result of hundreds of hours of design, selection, and hand-finishing.
+                </p>
+                <p className="text-sm text-espresso/60 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam iste corporis voluptatum, molestiae ea tenetur dicta, consequatur fuga ducimus officiis dolores odio sapiente cupiditate fugit eveniet libero est ipsam placeat.
+                </p>
+                <p className="text-sm text-espresso/60 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cumque reiciendis adipisci vel dolore odio voluptatum asperiores molestiae deleniti unde velit est soluta mollitia accusamus saepe, numquam sapiente consequuntur quia!
+                </p>
               </div>
 
-              <div>
-
+              {/* Quote card — FIX: rounded corners removed (inconsistent with brand), padding responsive */}
+              <div className="mt-8 sm:mt-10 bg-cream border border-espresso/60 p-6 sm:p-8 relative">
+                <span className="absolute top-4 left-5 text-4xl sm:text-5xl text-gold leading-none">❝</span>
+                <p className="pt-7 sm:pt-8 text-base sm:text-lg italic leading-7 sm:leading-8 text-espresso">
+                  Every piece of jewellery carries a story, an emotion, and a legacy that
+                  lasts for generations.
+                </p>
+                <p className="mt-4 sm:mt-6 text-right text-xs sm:text-sm uppercase tracking-[0.2em] text-gold">
+                  — Raj Sharma
+                </p>
               </div>
             </motion.div>
 
-
-
-            <motion.div {...fadeUp(0.2)} >
-              <img src="https://i.pinimg.com/736x/a0/18/3e/a0183e01ba50404f0796597c57e7f320.jpg" alt="raj jewellery founder" className='object-cover w-full aspect-[4/5]' />
-
+            <motion.div {...fadeUp(0.2)}>
+              <img
+                src="https://i.pinimg.com/736x/a0/18/3e/a0183e01ba50404f0796597c57e7f320.jpg"
+                alt="Raj Jewellery founder"
+                className="object-cover w-full aspect-[4/5]"
+              />
             </motion.div>
+
           </div>
-
         </div>
       </section>
 

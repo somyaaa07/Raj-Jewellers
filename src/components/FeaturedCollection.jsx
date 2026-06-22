@@ -18,7 +18,7 @@ const collections = [
   {
     title: 'Silver Bracelets',
     subtitle: 'Wrist Artistry',
-    image: 'https://i.pinimg.com/736x/2d/6c/9d/2d6c9d40e2821775ca5d5c61459d9dd7.jpg' ,
+    image: 'https://i.pinimg.com/736x/2d/6c/9d/2d6c9d40e2821775ca5d5c61459d9dd7.jpg',
     count: '29 pieces',
   },
   {
@@ -29,7 +29,6 @@ const collections = [
   },
 ]
 
-// Shared easing curve — silky luxury feel
 const silk = [0.25, 0.46, 0.45, 0.94]
 
 function CollectionCard({ item, index }) {
@@ -44,23 +43,23 @@ function CollectionCard({ item, index }) {
       <Link to="/gallery" className="flex flex-col items-center w-full">
 
         {/* Circle + dotted ring wrapper */}
-        <div className="relative p-[10px]">
+        {/* FIX: p-[6px] mobile, p-[10px] sm+ */}
+        <div className="relative p-[6px] sm:p-[10px]">
 
-          {/* Dotted ring — smooth 360° spin on hover */}
+          {/* Dotted ring */}
           <div
             className="absolute inset-0 rounded-full border border-dashed border-[#7e664f]/80
                         transition-[transform,border-color] duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
                         group-hover:rotate-180 group-hover:border-[#7e664f]"
           />
 
-          {/* Image circle */}
+          {/* Image circle — FIX: w-28 h-28 on mobile, scales up */}
           <div
-            className="relative w-40 h-40 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden
+            className="relative w-28 h-28 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden
                         ring-1 ring-gold/20
                         transition-[box-shadow,ring] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
                         group-hover:ring-gold/50 group-hover:shadow-[0_0_28px_0px_rgba(180,148,92,0.18)]"
           >
-            {/* Image */}
             <img
               src={item.image}
               alt={item.title}
@@ -69,14 +68,10 @@ function CollectionCard({ item, index }) {
                          group-hover:scale-110 group-hover:blur-[2px] group-hover:brightness-50"
               loading="lazy"
             />
-
-            {/* Base gradient */}
             <div
               className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/10 to-transparent
                           transition-opacity duration-500 group-hover:opacity-40"
             />
-
-            {/* Hover CTA — slides up from slight below */}
             <div
               className="absolute inset-0 flex items-center justify-center
                           opacity-0 translate-y-2
@@ -86,7 +81,7 @@ function CollectionCard({ item, index }) {
               <span
                 className="flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase
                              text-cream/90 bg-charcoal/40 backdrop-blur-md
-                             px-4 py-2 rounded-full border border-cream/20"
+                             px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-cream/20"
               >
                 View <ArrowRight size={11} />
               </span>
@@ -94,22 +89,23 @@ function CollectionCard({ item, index }) {
           </div>
         </div>
 
-        {/* Text — subtle fade-up, slightly after card */}
+        {/* Text */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: index * 0.18 + 0.25, ease: silk }}
-          className="text-center mt-5"
+          className="text-center mt-3 sm:mt-5"
         >
-          <p className="text-[9px] tracking-[0.22em] uppercase text-gold/70 mb-1.5">
+          <p className="text-[8px] sm:text-[9px] tracking-[0.22em] uppercase text-gold/70 mb-1 sm:mb-1.5">
             {item.subtitle}
           </p>
-          <h3 className="font-display text-espresso text-base sm:text-lg tracking-wide mb-1
+          {/* FIX: text-sm mobile, text-base sm, text-lg lg */}
+          <h3 className="font-display text-espresso text-sm sm:text-base lg:text-lg tracking-wide mb-1
                           transition-colors duration-300 group-hover:text-espresso/80">
             {item.title}
           </h3>
-          <span className="text-espresso/40 text-[10px] tracking-widest">{item.count}</span>
+          <span className="text-espresso/40 text-[9px] sm:text-[10px] tracking-widest">{item.count}</span>
         </motion.div>
       </Link>
     </motion.div>
@@ -118,11 +114,12 @@ function CollectionCard({ item, index }) {
 
 export default function FeaturedCollection() {
   return (
-    <section className="py-28 px-6 bg-cream">
+    // FIX: py-16 mobile, py-28 lg+
+    <section className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 bg-cream">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.span
             initial={{ opacity: 0, letterSpacing: '0.15em' }}
             whileInView={{ opacity: 1, letterSpacing: '0.22em' }}
@@ -138,12 +135,11 @@ export default function FeaturedCollection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.75, delay: 0.1, ease: silk }}
-            className="font-display text-espresso text-4xl sm:text-5xl mt-4 mb-5"
+            className="font-display text-espresso text-3xl sm:text-4xl lg:text-5xl mt-4 mb-5"
           >
             Featured Collections
           </motion.h2>
 
-          {/* Gold divider — expands width on reveal */}
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             whileInView={{ scaleX: 1, opacity: 1 }}
@@ -154,29 +150,28 @@ export default function FeaturedCollection() {
           />
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+        {/* Grid — FIX: gap-4 mobile, gap-8 sm, gap-10 lg */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 lg:gap-10">
           {collections.map((item, i) => (
             <CollectionCard key={i} item={item} index={i} />
           ))}
         </div>
 
-        {/* CTA — shimmer + lift on hover */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.45, duration: 0.65, ease: silk }}
-          className="text-center mt-14"
+          className="text-center mt-10 sm:mt-14"
         >
           <Link
             to="/collection"
             className="btn-outline-gold relative inline-flex items-center gap-2 overflow-hidden
                         transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
                         hover:-translate-y-[2px] hover:shadow-[0_6px_24px_-4px_rgba(180,148,92,0.28)]
-                        group/cta"
+                        group/cta text-xs sm:text-sm"
           >
-            {/* Shimmer sweep */}
             <span
               className="pointer-events-none absolute inset-0 -translate-x-full
                           bg-gradient-to-r from-transparent via-gold/15 to-transparent
@@ -184,12 +179,6 @@ export default function FeaturedCollection() {
                           group-hover/cta:translate-x-full"
             />
             <span className="relative">View All Collections</span>
-            {/* <ArrowRight
-              size={13}
-              className="relative opacity-0 -translate-x-2
-                          transition-[opacity,transform] duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
-                          group-hover/cta:opacity-100 group-hover/cta:translate-x-0"
-            /> */}
           </Link>
         </motion.div>
 

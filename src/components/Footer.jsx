@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { Instagram, Facebook, Send } from 'lucide-react'
 import { useState } from 'react'
 
@@ -19,22 +18,22 @@ export default function Footer() {
     <footer className="bg-charcoal text-ivory/70">
       {/* Top strip */}
       <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-1">
-              <Link to="/" className="flex items-center gap-2 group shrink-0 ">
-          <img
-            src="/logo.png"
-            alt="Raj Jewellwer logo"
-            className={`w-auto object-contain transition-all duration-500 h-30`}
-            // style={{ maxHeight: scrolled ? '80px' : '89px' }}
-          />
-        </Link>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12">
+
+          {/* Brand — FIX: col-span-2 on sm so it gets full row, then normal on md */}
+          <div className="sm:col-span-2 md:col-span-1">
+            <Link to="/" className="inline-block mb-4">
+              <img
+                src="/logo.png"
+                alt="Raj Jewellers logo"
+                className="w-auto object-contain h-20"
+              />
+            </Link>
             <p className="text-sm leading-relaxed text-ivory/50 max-w-xs">
-              Handcrafted luxury jewellery where timeless artistry meets modern elegance. 
+              Handcrafted luxury jewellery where timeless artistry meets modern elegance.
               Each piece tells a story of devotion.
             </p>
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-3 mt-6">
               {[Instagram, Facebook].map((Icon, i) => (
                 <a
                   key={i}
@@ -44,7 +43,6 @@ export default function Footer() {
                   <Icon size={16} />
                 </a>
               ))}
-              {/* Pinterest SVG */}
               <a
                 href="#"
                 className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300"
@@ -58,7 +56,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-ivory text-base tracking-wider mb-6">Navigation</h4>
+            <h4 className="font-display text-ivory text-base tracking-wider mb-5 sm:mb-6">Navigation</h4>
             <ul className="space-y-3">
               {['Home', 'About', 'Gallery', 'Contact'].map(page => (
                 <li key={page}>
@@ -75,7 +73,7 @@ export default function Footer() {
 
           {/* Collections */}
           <div>
-            <h4 className="font-display text-ivory text-base tracking-wider mb-6">Collections</h4>
+            <h4 className="font-display text-ivory text-base tracking-wider mb-5 sm:mb-6">Collections</h4>
             <ul className="space-y-3">
               {['Diamond Rings', 'Gold Necklaces', 'Luxury Bracelets', 'Wedding Collection', 'Earrings'].map(item => (
                 <li key={item}>
@@ -87,27 +85,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-display text-ivory text-base tracking-wider mb-6">Newsletter</h4>
+          {/* Newsletter — FIX: col-span-2 on sm so input doesn't get squished */}
+          <div className="sm:col-span-2 md:col-span-1">
+            <h4 className="font-display text-ivory text-base tracking-wider mb-5 sm:mb-6">Newsletter</h4>
             <p className="text-sm text-ivory/50 mb-5 leading-relaxed">
               Receive exclusive previews and invitations to private events.
             </p>
             {subscribed ? (
               <p className="text-gold text-sm tracking-wide">Thank you for subscribing.</p>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-0">
+              <form onSubmit={handleSubscribe} className="flex gap-0 max-w-sm">
                 <input
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="Your email"
-                  className="flex-1 bg-white/5 border border-white/10 px-4 py-3 text-sm text-ivory placeholder-ivory/30 outline-none focus:border-gold transition-colors font-body"
+                  className="flex-1 min-w-0 bg-white/5 border border-white/10 px-3 sm:px-4 py-3 text-sm text-ivory placeholder-ivory/30 outline-none focus:border-gold transition-colors font-body"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-gold hover:bg-gold-light px-4 py-3 text-white transition-colors flex items-center"
+                  className="bg-gold hover:bg-gold-light px-4 py-3 text-white transition-colors flex items-center flex-shrink-0"
                 >
                   <Send size={14} />
                 </button>
@@ -117,8 +115,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+      {/* Bottom bar — FIX: text-center on mobile */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-3 text-center md:text-left">
         <p className="text-xs text-ivory/30 tracking-widest">
           © 2025 RAJ JEWELLERS & SONS . ALL RIGHTS RESERVED.
         </p>

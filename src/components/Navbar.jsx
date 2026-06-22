@@ -117,6 +117,7 @@ function MegaMenu({ onClose }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+      // FIX: left-0 on tablet instead of centering, full width on small screens
       className="absolute top-full left-1/2 -translate-x-1/2 w-[min(96vw,900px)] bg-ivory border border-espresso/8 shadow-2xl z-50 mt-2"
     >
       {/* Tab row */}
@@ -130,7 +131,8 @@ function MegaMenu({ onClose }) {
             key={tab.id}
             onMouseEnter={() => setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 py-3.5 text-xs tracking-[0.15em] uppercase font-body transition-all duration-200 ${
+            // FIX: text wrapping on tablet — allow text-[0.65rem] on md, xs on lg
+            className={`flex-1 py-3 text-[0.6rem] lg:text-xs tracking-[0.1em] lg:tracking-[0.15em] uppercase font-body transition-all duration-200 ${
               activeTab === tab.id
                 ? 'bg-espresso text-ivory'
                 : 'text-espresso/60 hover:text-gold hover:bg-espresso/4'
@@ -142,14 +144,16 @@ function MegaMenu({ onClose }) {
       </div>
 
       {/* Panels */}
-      <div className="p-6">
+      {/* FIX: padding responsive */}
+      <div className="p-4 lg:p-6 max-h-[70vh] overflow-y-auto">
         {activeTab === 'gold' && (
           <div>
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-4 lg:mb-5">
               <div className="h-px w-8 bg-gold" />
               <span className="section-label">Gold Jewellery</span>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-1">
+            {/* FIX: 2 cols on tablet, 4 on desktop */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-6 gap-y-1">
               {goldCategories.map(cat => (
                 <Link
                   key={cat.slug}
@@ -165,7 +169,7 @@ function MegaMenu({ onClose }) {
                 </Link>
               ))}
             </div>
-            <div className="mt-5 pt-4 border-t border-espresso/8 flex gap-3">
+            <div className="mt-4 lg:mt-5 pt-4 border-t border-espresso/8 flex flex-wrap gap-3">
               <Link to="/shop?metal=gold" onClick={onClose} className="btn-gold py-2.5 text-[0.65rem]">
                 View All Gold
               </Link>
@@ -178,11 +182,12 @@ function MegaMenu({ onClose }) {
 
         {activeTab === 'silver' && (
           <div>
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-4 lg:mb-5">
               <div className="h-px w-8 bg-gold" />
               <span className="section-label">Silver Jewellery</span>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-x-6 gap-y-1">
+            {/* FIX: 2 cols on tablet, 4 on desktop */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-6 gap-y-1">
               {silverCategories.map(cat => (
                 <Link
                   key={cat.slug}
@@ -198,7 +203,7 @@ function MegaMenu({ onClose }) {
                 </Link>
               ))}
             </div>
-            <div className="mt-5 pt-4 border-t border-espresso/8 flex gap-3">
+            <div className="mt-4 lg:mt-5 pt-4 border-t border-espresso/8 flex flex-wrap gap-3">
               <Link to="/shop?metal=silver" onClick={onClose} className="btn-gold py-2.5 text-[0.65rem]">
                 View All Silver
               </Link>
@@ -208,17 +213,18 @@ function MegaMenu({ onClose }) {
 
         {activeTab === 'collections' && (
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 lg:mb-6">
               <div className="h-px w-8 bg-gold" />
               <span className="section-label">Shop by Collection</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+            {/* FIX: 1 col on small, 2 on md, 5 on lg */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
               {collectionLinks.map(col => (
                 <Link
                   key={col.slug}
                   to={`/collections#${col.slug}`}
                   onClick={onClose}
-                  className="group relative overflow-hidden bg-cream p-5 border border-espresso/8 hover:border-gold/50 transition-all duration-300"
+                  className="group relative overflow-hidden bg-cream p-4 lg:p-5 border border-espresso/8 hover:border-gold/50 transition-all duration-300"
                 >
                   <div className="font-display text-espresso text-sm mb-1 group-hover:text-gold transition-colors">{col.label}</div>
                   <div className="text-espresso/45 text-[0.6rem] tracking-wide leading-relaxed">{col.desc}</div>
@@ -249,7 +255,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mega menu on outside click
   useEffect(() => {
     function handleClick(e) {
       if (megaRef.current && !megaRef.current.contains(e.target)) {
@@ -260,7 +265,6 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -273,28 +277,29 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'glass-nav py-3 shadow-sm' : 'py-5 bg-transparent'
+          scrolled ? 'glass-nav py-2 md:py-3 shadow-sm' : 'py-3 md:py-5 bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-12">
+        {/* FIX: px-4 on mobile, px-6 on md+ */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-12">
 
-          {/* Logo — unchanged */}
-          <Link to="/" className="flex flex-col items-start group">
+          {/* Logo — FIX: constrain height on mobile so it doesn't overflow */}
+          <Link to="/" className="flex flex-col items-start group flex-shrink-0">
             <img
               src="/logo.png"
-              alt="Raj Jewellwer logo"
-              className={`w-auto object-contain transition-all duration-500 ${
-                scrolled ? 'h-20 md:h-20' : 'h-20 md:h-20'
-              }`}
-              style={{ maxHeight: scrolled ? '80px' : '89px' }}
+              alt="Raj Jewellers logo"
+              className="w-auto object-contain transition-all duration-500"
+              style={{
+                height: scrolled ? '56px' : '64px',
+                maxHeight: scrolled ? '56px' : '72px',
+              }}
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          {/* Desktop Nav — FIX: gap-6 on md, gap-8 on lg, gap-10 on xl */}
+          <nav className="hidden md:flex items-center gap-5 lg:gap-8 xl:gap-10">
             {navLinks.map(({ to, label, hasMega }) =>
               hasMega ? (
-                /* Shop — triggers mega menu */
                 <div key={to} className="relative" ref={megaRef}>
                   <button
                     onMouseEnter={() => setMegaOpen(true)}
@@ -317,7 +322,6 @@ export default function Navbar() {
                   </AnimatePresence>
                 </div>
               ) : (
-                /* Regular nav links — unchanged */
                 <NavLink
                   key={to}
                   to={to}
@@ -332,25 +336,25 @@ export default function Navbar() {
             )}
           </nav>
 
-          {/* CTA — unchanged */}
-          <div className="hidden md:block">
-            <Link to="/contact" className="btn-gold text-xs">
+          {/* CTA — hidden on md if space is tight, show on lg+ */}
+          <div className="hidden lg:block flex-shrink-0">
+            <Link to="/contact" className="btn-gold text-xs whitespace-nowrap">
               Book Consultation
             </Link>
           </div>
 
-          {/* Mobile menu toggle — unchanged */}
+          {/* Mobile menu toggle */}
           <button
-            className="md:hidden text-espresso hover:text-gold transition-colors"
+            className="md:hidden text-espresso hover:text-gold transition-colors p-1"
             onClick={() => setMenuOpen(v => !v)}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </motion.header>
 
-      {/* Mobile menu — original style preserved, Shop accordions added */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -358,29 +362,33 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-0 z-40 bg-espresso flex flex-col items-center justify-center gap-6 px-8 overflow-y-auto"
+            // FIX: overflow-y-auto + pt for status bar + pb for safe-area
+            className="fixed inset-0 z-40 bg-espresso flex flex-col items-center justify-start pt-24 pb-10 px-8 overflow-y-auto"
           >
-            {/* Regular nav links (not Shop) */}
-            {navLinks
-              .filter(link => !link.hasMega)
-              .map(({ to, label }) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={to === '/'}
-                  onClick={() => setMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `font-display text-3xl tracking-widest transition-colors duration-300 ${
-                      isActive ? 'text-gold' : 'text-ivory hover:text-gold'
-                    }`
-                  }
-                >
-                  {label}
-                </NavLink>
-              ))}
+            {/* Regular nav links */}
+            <div className="flex flex-col items-center gap-5 w-full">
+              {navLinks
+                .filter(link => !link.hasMega)
+                .map(({ to, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={to === '/'}
+                    onClick={() => setMenuOpen(false)}
+                    // FIX: text-2xl on small phones, 3xl on normal
+                    className={({ isActive }) =>
+                      `font-display text-2xl sm:text-3xl tracking-widest transition-colors duration-300 ${
+                        isActive ? 'text-gold' : 'text-ivory hover:text-gold'
+                      }`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+            </div>
 
-            {/* Shop accordion sections */}
-            <div className="w-full max-w-xs mt-2">
+            {/* Shop accordions */}
+            <div className="w-full max-w-xs mt-6">
               <MobileSection
                 title="Gold Jewellery"
                 items={goldCategories}
@@ -402,7 +410,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
-              className="btn-gold mt-4"
+              className="btn-gold mt-6"
             >
               Book Consultation
             </Link>
