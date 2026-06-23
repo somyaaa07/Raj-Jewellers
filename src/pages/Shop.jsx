@@ -114,7 +114,7 @@ export default function Shop() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <MetalHeroCard
               metal="gold" label="Gold Jewellery" tagline="22K & 18K Gold"
-              image="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1000&q=90"
+              image="https://i.pinimg.com/1200x/9c/6c/7f/9c6c7f4beb0ae1710647d3c44134f6ea.jpg"
               count={goldCount * 8}
               onSelect={() => { setActiveFilter('gold'); document.getElementById('shop-grid')?.scrollIntoView({ behavior: 'smooth' }) }}
             />

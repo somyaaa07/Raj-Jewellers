@@ -325,7 +325,7 @@ export default function CraftsmanshipAndContactSection() {
             <div className="lg:col-span-2 relative h-72 sm:h-96 lg:h-full lg:min-h-[480px]">
               <iframe
                 title="Raj Jewellers Location"
-                src="https://maps.app.goo.gl/42nxXteK8wyoFeN7A"
+                src="https://maps.google.com/maps?q=28.4904375,78.1571875&z=15&output=embed"
                 width="100%" height="100%"
                 style={{ border: 0, filter: 'grayscale(40%) contrast(1.1) brightness(0.85)' }}
                 allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"

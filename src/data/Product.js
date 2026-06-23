@@ -2,18 +2,18 @@
    products.js  —  Aurum Fine Jewellery Product Catalogue
    ───────────────────────────────────────────────────── */
 
-export const WHATSAPP_NUMBER = '919876543210' // Replace with real number
+export const WHATSAPP_NUMBER = '918929712603' // Replace with real number
 
 /* ── Image pools ─────────────────────────────────── */
 const IMG = {
-  ring1:       'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=90',
-  ring2:       'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=900&q=90',
-  ring3:       'https://images.unsplash.com/photo-1601121141418-36b7e19e2b1a?w=900&q=90',
-  ring4:       'https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=900&q=90',
-  necklace1:   'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=90',
-  necklace2:   'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=90',
-  necklace3:   'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=900&q=90',
-  necklace4:   'https://images.unsplash.com/photo-1607703703520-bb638e84caf2?w=900&q=90',
+  ring1:       'https://i.pinimg.com/1200x/52/7f/d5/527fd502e821a6f5e490218224da9d40.jpg',
+  ring2:       'https://i.pinimg.com/1200x/0e/12/36/0e1236c3b5f1f7986f51d6f705a3d459.jpg',
+  ring3:       'https://i.pinimg.com/1200x/aa/94/81/aa9481821a408c00d9b337aeefcd1900.jpg',
+  ring4:       'https://i.pinimg.com/1200x/f7/9f/a8/f79fa83b9c2187479070a1fadc4279eb.jpg',
+  necklace1:   'https://i.pinimg.com/736x/3f/df/4a/3fdf4a40a6430c17fc39852bf784c808.jpg',
+  necklace2:   'https://i.pinimg.com/736x/b5/1d/54/b51d54377881806e0bb72019260fb5f4.jpg',
+  necklace3:   'https://i.pinimg.com/1200x/fe/dc/ea/fedceaddcfe8ddc997eea0048daac09b.jpg',
+  necklace4:   'https://i.pinimg.com/736x/26/87/cf/2687cf5915d10f0e96a9ba07b47bc1f7.jpg',
   bracelet1:   'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=900&q=90',
   bracelet2:   'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=900&q=90',
   bracelet3:   'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=90',
@@ -21,7 +21,7 @@ const IMG = {
   earring1:    'https://images.unsplash.com/photo-1573408301185-9519f94e1083?w=900&q=90',
   earring2:    'https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=900&q=90',
   earring3:    'https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=90',
-  bridal1:     'https://images.unsplash.com/photo-1498671546682-94a232c26d17?w=900&q=90',
+  bridal1:     'https://i.pinimg.com/1200x/07/35/3a/07353ae28e4756541c45154c2a510072.jpg',
   bridal2:     'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=90',
   chain1:      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=900&q=90',
   locket1:     'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=900&q=90',
@@ -29,7 +29,7 @@ const IMG = {
   payal1:      'https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=900&q=90',
   pendant1:    'https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=900&q=90',
   kade1:       'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=90',
-  choker1:     'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=900&q=90',
+  choker1:     'https://i.pinimg.com/736x/0f/3f/4d/0f3f4d43899c1fc1d4cf7e07b6f1aa2d.jpg',
   mangal1:     'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=90',
   jhumki1:     'https://images.unsplash.com/photo-1573408301185-9519f94e1083?w=900&q=90',
   craft1:      'https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=90',
@@ -41,7 +41,7 @@ export const products = [
   {
     id: 'gr-001',
     slug: 'gold-solitaire-ring',
-    name: 'Solitaire Diamond Ring',
+    name: 'Gold Rings',
     category: 'Rings',
     categorySlug: 'gold-rings',
     metal: 'gold',
@@ -99,7 +99,7 @@ export const products = [
   {
     id: 'gn-002',
     slug: 'gold-diamond-choker',
-    name: 'Diamond Gold Choker',
+    name: 'Gold Choker',
     category: 'Chokers',
     categorySlug: 'gold-chokers',
     metal: 'gold',
@@ -143,7 +143,7 @@ export const products = [
   {
     id: 'ge-002',
     slug: 'gold-tops-diamond',
-    name: 'Diamond Tops',
+    name: ' Gold Tops',
     category: 'Tops',
     categorySlug: 'gold-tops',
     metal: 'gold',

@@ -222,13 +222,13 @@ export default function ProductDetail() {
                   href={waUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold flex items-center justify-center gap-2.5 py-4 text-sm"
+                  className="btn-gold flex items-center justify-center gap-2 py-4 text-sm"
                 >
-                  <WhatsAppIcon size={16} />
+                  <WhatsAppIcon   className="shrink-0" size={16} />
                   Enquire on WhatsApp
                 </a>
                 <Link to="/contact" className="btn-outline-gold flex items-center justify-center py-4 text-sm">
-                  Book Consultation
+                  <span clasName="-mt-4">Book Consultation</span>
                 </Link>
               </div>
 

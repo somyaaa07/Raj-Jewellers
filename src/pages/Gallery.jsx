@@ -6,10 +6,10 @@ import PageBanner from '../components/PageBanner'
 const categories = ['All', 'Rings', 'Necklaces', 'Bracelets', 'Earrings', 'Wedding']
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=85', cat: 'Rings', title: 'Solitaire Diamond Ring', tall: true },
-  { src: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=85', cat: 'Necklaces', title: 'Gold Pendant Necklace' },
-  { src: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800&q=85', cat: 'Bracelets', title: 'Diamond Tennis Bracelet' },
-  { src: 'https://images.unsplash.com/photo-1573408301185-9519f94e1083?w=800&q=85', cat: 'Earrings', title: 'Drop Pearl Earrings', tall: true },
+  { src: 'https://i.pinimg.com/736x/2f/57/7e/2f577e44dc51080ff1c9bbbeca505bea.jpg', cat: 'Rings', title: 'Solitaire Diamond Ring', tall: true },
+  { src: 'https://i.pinimg.com/webp/1200x/f7/ed/c7/f7edc72c9f34c0e5d6df6751a165b3a0.webp', cat: 'Necklaces', title: 'Gold Pendant Necklace' },
+  { src: 'https://i.pinimg.com/736x/b1/87/10/b1871024948c5b1b0acef0cf67f8b38e.jpg', cat: 'Bracelets', title: 'Diamond Tennis Bracelet' },
+  { src: 'https://i.pinimg.com/1200x/a1/2a/89/a12a89b422fc5394b6f66b410e1adf05.jpg', cat: 'Earrings', title: 'Drop Pearl Earrings', tall: true },
   { src: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&q=85', cat: 'Rings', title: 'Rose Gold Halo Ring' },
   { src: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&q=85', cat: 'Necklaces', title: 'Layered Gold Chain' },
   { src: 'https://images.unsplash.com/photo-1498671546682-94a232c26d17?w=800&q=85', cat: 'Wedding', title: 'Bridal Jewellery Set', tall: true },
