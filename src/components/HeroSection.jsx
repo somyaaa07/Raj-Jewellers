@@ -10,7 +10,7 @@ export default function HeroSection() {
 
         {/* Mobile banner (shown below md) */}
         <motion.img
-          src="/mobileBanner.png"
+          src="/mobileBanner1.png"
           alt="Luxury jewellery"
           className="block md:hidden w-full h-full object-cover object-top"
         />
