@@ -336,7 +336,7 @@ export default function CraftsmanshipAndContactSection() {
                 <MapPin size={14} className="text-gold flex-shrink-0" strokeWidth={1.5} />
                 <div>
                   <div className="text-ivory text-xs font-display tracking-wider">Raj Jewellers & Sons</div>
-                  <div className="text-ivory/50 text-[0.6rem] tracking-wide mt-0.5">Connaught Place, New Delhi</div>
+                  {/* <div className="text-ivory/50 text-[0.6rem] tracking-wide mt-0.5">Connaught Place, New Delhi</div> */}
                 </div>
               </div>
             </div>
