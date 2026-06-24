@@ -2,10 +2,13 @@
    products.js  —  Aurum Fine Jewellery Product Catalogue
    ───────────────────────────────────────────────────── */
 
-export const WHATSAPP_NUMBER = '918929712603' // Replace with real number
+export const WHATSAPP_NUMBER = '919761560132' // Replace with real number
 
 /* ── Image pools ─────────────────────────────────── */
 const IMG = {
+  rosering1: 'https://i.pinimg.com/736x/14/6d/fb/146dfbbd2094d2442f053b5c75cb0d21.jpg',
+  rosering2:'https://i.pinimg.com/736x/7b/2f/5a/7b2f5a7214e3ac0fc978106b3739b2f2.jpg',
+  rosering3:'https://i.pinimg.com/736x/51/48/59/5148597f0c4c365f247cc6cc6a2a0d50.jpg',
   ring1:       'https://i.pinimg.com/1200x/52/7f/d5/527fd502e821a6f5e490218224da9d40.jpg',
   ring2:       'https://i.pinimg.com/1200x/0e/12/36/0e1236c3b5f1f7986f51d6f705a3d459.jpg',
   ring3:       'https://i.pinimg.com/1200x/aa/94/81/aa9481821a408c00d9b337aeefcd1900.jpg',
@@ -92,7 +95,7 @@ export const products = [
     categorySlug: 'gold-rings',
     metal: 'gold',
     collections: ['party-wear', 'daily-wear'],
-    images: [IMG.ring2, IMG.ring5, IMG.ring4],
+    images: [IMG.rosering1, IMG.rosering2, IMG.rosering3],
     shortDescription: 'A halo of micro-pave stones encircles a central gem — opulence at its most elegant.',
     fullDescription: 'The Rose Gold Halo Ring features a central gemstone encircled by a delicate halo of pavé-set diamonds. Crafted in 18K rose gold, the warm tone complements every complexion. Perfect as an engagement ring or a statement anniversary gift.',
     features: ['18K Rose Gold', 'Pavé Diamond Halo', 'GIA Certified Stone', 'Complimentary Sizing'],

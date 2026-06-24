@@ -245,16 +245,16 @@ export default function CraftsmanshipAndContactSection() {
 
             {/* Image — FIX: not sticky on mobile, stat card pulled in on mobile */}
             <motion.div {...fadeUp(0.3)} className="relative lg:sticky lg:top-28">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-full h-79 xs:h-100 sm:h-130 md:h-160 lg:h-100 xl:h-128">
                 <img
                   src="/shop.png"
                   alt="Jewellery artisan at work"
-                  className="w-full h-64 sm:h-80 lg:h-[600px] object-cover"
+                  className=" object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent" />
 
                 {/* FIX: stat card — inset on mobile so it doesn't overflow */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -264,7 +264,7 @@ export default function CraftsmanshipAndContactSection() {
                   <div className="font-display text-3xl sm:text-4xl text-gold mb-1">250+</div>
                   <div className="text-ivory/55 text-[0.6rem] sm:text-xs tracking-widest uppercase">Exclusive</div>
                   <div className="text-ivory text-[0.6rem] sm:text-xs tracking-widest uppercase">Designs Created</div>
-                </motion.div>
+                </motion.div> */}
               </div>
 
               {/* FIX: gold frame hidden on mobile (would clip) */}

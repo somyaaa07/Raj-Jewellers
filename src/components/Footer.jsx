@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="sm:col-span-2 md:col-span-1">
             <Link to="/" className="inline-block mb-4">
               <img
-                src="/logo.png"
+                src="/logo2.png"
                 alt="Raj Jewellers logo"
                 className="w-auto object-contain h-20"
               />

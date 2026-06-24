@@ -7,24 +7,24 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.img
-          src="/banner.png"
+          src="/banner6.png"
           alt="Luxury jewellery"
           className="w-full h-full object-cover object-center"
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-left px-4 sm:px-8 md:px-14 w-full max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mt-8">
+      <div className="relative z-10 text-left px-4 sm:px-8 md:px-14 lg:px-14 w-full max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mt-8">
 
         {/* Section label */}
-        <motion.span
+        {/* <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="section-label block text-[10px] sm:text-xs md:text-sm tracking-widest truncate max-w-full mb-3 sm:mb-4 px-2"
         >
           Raj Jewellers &amp; Sons &nbsp;·&nbsp; Established 1999
-        </motion.span>
+        </motion.span> */}
 
         {/* Main heading */}
         <motion.h1

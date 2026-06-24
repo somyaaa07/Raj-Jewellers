@@ -250,11 +250,11 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/logo.png"
+              src="/logo2.png"
               alt="Raj Jewellers logo"
               className="w-auto object-contain transition-all duration-500"
               style={{
-                height: scrolled ? '85px' : '88px',
+                height: scrolled ? '80px' : '85px',
               }}
             />
           </Link>
