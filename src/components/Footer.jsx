@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Diamond Rings', 'Gold Necklaces', 'Luxury Bracelets', 'Wedding Collection', 'Earrings'].map(item => (
                 <li key={item}>
-                  <Link to="/collection" className="text-sm text-ivory/50 hover:text-gold transition-colors duration-300 tracking-wide">
+                  <Link to="/collections" className="text-sm text-ivory/50 hover:text-gold transition-colors duration-300 tracking-wide">
                     {item}
                   </Link>
                 </li>

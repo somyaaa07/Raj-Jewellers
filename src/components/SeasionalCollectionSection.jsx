@@ -282,7 +282,7 @@ export default function SeasonalCollectionsSection() {
                 {/* CTA row — stacked on small, inline on sm+ */}
                 <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-5">
                   <Link
-                    to="/collection"
+                    to="/collections"
                     className="btn-gold text-center text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3"
                   >
                     View Collection
